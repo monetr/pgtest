@@ -3,7 +3,7 @@ stages:
 
 Kaniko:
   needs: []
-  stage: Build Container
+  stage: Build
   image: containers.harderthanitneedstobe.com/kaniko-ci:latest
   tags:
     - k8s:shared
