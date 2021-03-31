@@ -1,6 +1,9 @@
 stages:
   - Build
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 Kaniko:
   needs: []
   stage: Build
