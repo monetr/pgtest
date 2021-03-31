@@ -1,0 +1,3 @@
+[submodule "pgtap"]
+	path = pgtap
+	url = https://github.com/theory/pgtap.git
