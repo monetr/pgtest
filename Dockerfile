@@ -14,4 +14,6 @@ COPY ./pgtap /work/pgtap
 WORKDIR /work/pgtap
 
 RUN make
-RUN cp ./pgtap.control /usr/local/share/postgresql/extension/pgtap.control
+RUN make install
+RUN make installcheck
+# RUN cp ./pgtap.control /usr/local/share/postgresql/extension/pgtap.control
