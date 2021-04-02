@@ -1,4 +1,4 @@
-name: Publish
+name: Build
 
 on:
   pull_request:
@@ -7,17 +7,24 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Build and push
+      - name: Build
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          push: false
+          push: true
           tags: |
-            containers.harderthanitneedstobe.com/pgtest:latest
+            localhost:5000/pgtest:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Start PGTest Image
+        run: docker run localhost:5000/pgtest:latest
