@@ -23,8 +23,8 @@ jobs:
         with:
           push: true
           tags: |
-            localhost:5000/pgtest:latest
+            localhost:5000/testing/pgtest:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Start PGTest Image
-        run: docker run localhost:5000/pgtest:latest
+        run: docker run localhost:5000/testing/pgtest:latest
