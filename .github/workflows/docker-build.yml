@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - '!main'
+  pull_request: { }
+
+jobs:
+  docker:
+    name: Docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Build
+        uses: docker/build-push-action@v1
+        with:
+          registry: containers.monetr.dev
+          repository: deepsource
+          push: false
