@@ -1,6 +1,6 @@
 
 docker:
-	docker build -f $(PWD)/Dockerfile .
+	docker build --no-cache -f $(PWD)/Dockerfile .
 
 ifdef CI
 PG_TEST_EXTENSION_QUERY = "CREATE EXTENSION pgtap;"
