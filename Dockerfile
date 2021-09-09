@@ -9,7 +9,14 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.8/main'>> /etc/apk/repositorie
 RUN cpan TAP::Parser::SourceHandler::pgTAP
 RUN cpan XML::Simple
 
-RUN mkdir /work
+COPY ./Test-Deep /work/Test-Deep
+WORKDIR /work/Test-Deep
+RUN perl Makefile.PL && make && make test && make install
+
+COPY ./tap-harness-junit /work/tap-harness-junit
+WORKDIR /work/tap-harness-junit
+RUN perl Build.PL && ./Build && ./Build install
+
 COPY ./pgtap /work/pgtap
 WORKDIR /work/pgtap
 

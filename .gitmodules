@@ -1,3 +1,9 @@
 [submodule "pgtap"]
 	path = pgtap
 	url = https://github.com/theory/pgtap.git
+[submodule "tap-harness-junit"]
+	path = tap-harness-junit
+	url = https://github.com/jlavallee/tap-harness-junit.git
+[submodule "Test-Deep"]
+	path = Test-Deep
+	url = https://github.com/rjbs/Test-Deep.git
