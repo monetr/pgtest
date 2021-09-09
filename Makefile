@@ -6,6 +6,7 @@ ifdef CI
 PG_TEST_EXTENSION_QUERY = "CREATE EXTENSION pgtap;"
 JUNIT_OUTPUT_FILE=/junit.xml
 test:
+	-cpan XML::Simple
 	@for FILE in $(PWD)/tests/schema/*.up.sql; do \
 		echo "Applying $$FILE"; \
   		psql -q -d $(POSTGRES_DB) -U $(POSTGRES_USER) -h $(POSTGRES_HOST) -f $$FILE || exit 1; \
