@@ -7,7 +7,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.8/main'>> /etc/apk/repositorie
 
 # install pg_prove
 RUN cpan TAP::Parser::SourceHandler::pgTAP
-
+RUN cpan XML::Simple
 
 RUN mkdir /work
 COPY ./pgtap /work/pgtap
