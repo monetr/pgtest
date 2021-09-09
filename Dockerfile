@@ -8,6 +8,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.8/main'>> /etc/apk/repositorie
 # install pg_prove
 RUN cpan TAP::Parser::SourceHandler::pgTAP
 RUN cpan XML::Simple
+RUN apk add perl-xml-simple
 
 COPY ./Test-Deep /work/Test-Deep
 WORKDIR /work/Test-Deep
@@ -23,4 +24,4 @@ WORKDIR /work/pgtap
 RUN make
 RUN make install
 
-RUN cpan XML::Simple
+WORKDIR /
