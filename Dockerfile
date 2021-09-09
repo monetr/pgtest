@@ -22,3 +22,5 @@ WORKDIR /work/pgtap
 
 RUN make
 RUN make install
+
+RUN cpan XML::Simple
