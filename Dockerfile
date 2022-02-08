@@ -1,4 +1,4 @@
-FROM postgres:13-alpine
+FROM postgres:14-alpine
 
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.8/main'>> /etc/apk/repositories \
     && echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main'>> /etc/apk/repositories \
